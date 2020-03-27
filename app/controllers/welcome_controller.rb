@@ -4,8 +4,4 @@ class WelcomeController < ApplicationController
     # render html: "hi"
   end
 
-  def login
-    # render html: "hi"
-  end
-
 end
