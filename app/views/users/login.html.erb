@@ -9,12 +9,25 @@
 
 <body>
   <h1>使用者登入</h1>
-  <form action="">
-    <label for="email">email：<input type="email" id="email"></label>
-    <label for="password">password：<input type="password" id="password"></label>
+  
+  <%= form_for(@user, url: login_path, method: 'post') do |f| %>
 
-    <button type="button" value="login">送出</button>
-  </form>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.submit "登入"%>
+  </div>
+
+  <% end %>
+
 </body>
 
 </html>

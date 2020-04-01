@@ -10,36 +10,36 @@
 <body>
   <h1>使用者註冊</h1>
 
-  <%= form_for(User.new, url: '/sign_up', method: 'post') do |f| %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirm, "確認密碼"%>
-  <%= f.password_field :password_confirm %>
-
-  <%= f.submit "註冊"%>
-
+  <%= form_for(@user, url: '/sign_up', method: 'post') do |f| %>
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |messages| %>
+    <li><%= messages %></li>
+    <% end %>
+  </ul>
   <% end %>
 
-  <%# <form action="/sign_up" method="POST">
-    <label for="email">email：
-    <input type="email" id="email">
-    </label>
 
-    <label for="password">password：
-    <input type="password" id="password">
-    </label>
- 
-    <label for="password_confirm">password-confirm：
-    <input type="password" id="password_confirm">
-    </label>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
 
-    <button type="submit" value="sign_up">註冊</button>
-  </form> %>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmmation, "確認密碼"%>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.submit "註冊"%>
+  </div>
+
+  <% end %>
 
 </body>
 
