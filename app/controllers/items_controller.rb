@@ -1,17 +1,20 @@
 class ItemsController < ApplicationController
 
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
+  #以前是before_filter
+
 
   def index
-    @items = Item.all #SELECT * ITEMS all....，刻意用複數是因為是想抓一坨東西
+    @items = Item.all
   end
 
   def show
-      @item = Item.find(params[:id])
+    # find_item
+    # @item = Item.find(params[:id])
   end
 
   def new
-    @item = Item.new #model的
+    @item = Item.new
   end
 
   def create
@@ -26,10 +29,27 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    # find_item
+    # @item = Item.find(params[:id])
+    #如果使用 @item = Item.new會以為要做成全新的物件
+  end
+  
+  def update
+    # find_item
+    # @item = Item.find(params[:id])
+    
+    if @item.update(item_params)
+      redirect_to items_path, notice: '成功編輯餐點'
+    else
+      render :edit
+    end
+  end
   
   def destroy
-    item = Item.find(params[:id])
-    item.destroy #rails送的刪除方法
+    # find_item
+    # item = Item.find(params[:id])
+    @item.destroy
     redirect_to items_path, notice: '成功刪除餐點'
   end
 
@@ -41,9 +61,8 @@ class ItemsController < ApplicationController
                                  :spec)
   end
 
-  def record_not_found
-    render file: 'public/404.html', status: 404, layout: false
-    # redirect_to items_path, notice: '找不到！'
+  def find_item
+    @item = Item.find(params[:id])
   end
 
 end
