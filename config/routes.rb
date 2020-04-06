@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   # get "/", to: "welcome#index"
   resources :items
 
@@ -11,5 +12,5 @@ Rails.application.routes.draw do
   post "/sign_up", to: "users#registration"
 
 
-  root "welcome#index"
+  root "items#index"
 end
