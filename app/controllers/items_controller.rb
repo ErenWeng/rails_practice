@@ -65,6 +65,8 @@ class ItemsController < ApplicationController
 
   def find_item
     @item = Item.find(params[:id])
+    # @item = Item.find_by!(id: params[:id], deleted_at: nil)
+    # 如果找不到就是找不到
   end
 
 end

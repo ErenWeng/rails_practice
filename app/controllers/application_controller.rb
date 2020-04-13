@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
     render file: 'public/404.html', status: 404, layout: false
     # redirect_to items_path, notice: '找不到！'
   end
+  
 end

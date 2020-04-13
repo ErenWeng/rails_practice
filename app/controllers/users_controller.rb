@@ -31,7 +31,6 @@ class UsersController < ApplicationController
       if @user.save
       #成功
         session[:ccc9527] = @user.email
-      #缺登入
         redirect_to root_path
       else
       #失敗

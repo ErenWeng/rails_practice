@@ -1,1 +1,1 @@
-alert('ugly')
+// alert('ugly')
