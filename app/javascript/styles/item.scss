@@ -1,13 +1,15 @@
 .item {
   .card {
+    margin: 15px 0;
     .pic {
-      height: 15rem;
-      overflow: hidden;
-      border: 1px solid #faa;
+      height: 0px;
+      padding-bottom: 66.66%;
+      position: relative;
     }
     .cover-image {
       width: 100%;
-      display: block;
+      height: 100%;
+      position: absolute;
     }
   }
 }

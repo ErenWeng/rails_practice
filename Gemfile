@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'foreman', '~> 0.87.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -36,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   gem 'faker', '~> 2.11'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+  gem 'timecop', '~> 0.8.1'
 end
 
 group :development do
