@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :categories
   # get "/", to: "welcome#index"
-  resources :items
+  resources :items do
+    resources :comments, only: [:create]
+    # items/id/comments
+  end
+  # resources :commets, only: [:edit]
 
   #user
   get "/login", to: "users#login"

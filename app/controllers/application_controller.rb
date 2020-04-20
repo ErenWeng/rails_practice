@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    session[:ccc9527]
+    # 這樣每次使用current_user就可以撈到那個使用者的id(目前是id
+    User.find_by(id: session[:ccc9527])
   end
 
   def record_not_found

@@ -11,6 +11,8 @@ class ItemsController < ApplicationController
   def show
     # find_item
     # @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user) #! eager loading
   end
 
   def new
