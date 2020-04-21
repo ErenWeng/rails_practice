@@ -10,18 +10,13 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['content', 'submit']
+  static targets = ["content", "submit"]
 
-  connect() {
-    console.log('cc')
-  }
-
-  check() {
-    if (this.contentTarget.value.length > 1) {
-      this.submitTarget.disabled = false;
+  check(e) {
+    if (this.contentTarget.value.length >= 2) {
+      this.submitTarget.disabled = false
     } else {
-      this.submitTarget.disabled = true;
+      this.submitTarget.disabled = true
     }
-  };
-
+  }
 }
